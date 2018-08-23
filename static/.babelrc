@@ -1,0 +1,40 @@
+{
+  "plugins": [
+    "babel-plugin-styled-components"
+  ],
+  "presets": [
+    "react",
+    [
+      "env",
+      {
+        "targets": {
+          "browsers": [
+            "last 2 versions"
+          ]
+        },
+        "modules": false
+      }
+    ],
+    "stage-3"
+  ],
+  "env": {
+    "test": {
+      "presets": [
+        "react",
+        [
+          "env",
+          {
+            "targets": {
+              "browsers": [
+                "last 2 versions"
+              ]
+            },
+            "modules": "commonjs"
+          }
+        ],
+        "stage-3"
+      ],
+      "plugins": []
+    }
+  }
+}
