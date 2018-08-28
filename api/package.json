@@ -1,0 +1,57 @@
+{
+  "name": "food-out-app",
+  "version": "0.1.0",
+  "description": "An app to plan our food out appointments",
+  "main": "dist",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=development nodemon -w src --exec \"babel-node src --presets env\"",
+    "build": "babel src -s -D -d dist --presets env",
+    "start": "cross-env NODE_ENV=production && pm2 start dist",
+    "prestart": "npm run -s build",
+    "lint": "eslint src",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "eslintConfig": {
+    "parserOptions": {
+      "ecmaVersion": 7,
+      "sourceType": "module"
+    },
+    "env": {
+      "node": true
+    },
+    "rules": {
+      "no-console": 0,
+      "no-unused-vars": 1
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:jannydiamond/food-out-app.git"
+  },
+  "author": {
+    "name": "Janett Hickel",
+    "email": "janett.hickel@googlemail.com"
+  },
+  "license": "MIT",
+  "private": true,
+  "bugs": {
+    "url": "https://github.com/jannydiamond/food-out-app/issues"
+  },
+  "homepage": "https://github.com/jannydiamond/food-out-app#readme",
+  "dependencies": {
+    "body-parser": "^1.18.3",
+    "dotenv": "^6.0.0",
+    "express": "^4.16.3",
+    "mysql2": "^1.5.3",
+    "sequelize": "^4.38.0"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-core": "^6.26.3",
+    "babel-eslint": "^8.2.6",
+    "babel-preset-env": "^1.7.0",
+    "cross-env": "^5.2.0",
+    "eslint": "^5.2.0",
+    "nodemon": "^1.18.3"
+  }
+}

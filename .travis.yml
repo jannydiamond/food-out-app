@@ -7,14 +7,9 @@ cache:
     directories:
         - node_modules
 
-before_install: cd static
-
 install:
     - npm install
 
 script:
-    - npm run lint:css
-    - npm run lint:js
-    - npm run flow
-    - npm run test:coveralls
+    - npm run test
     - npm run build
