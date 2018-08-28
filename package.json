@@ -1,0 +1,28 @@
+{
+  "name": "food-out-app",
+  "version": "0.1.0",
+  "description": "An app to plan our food out appointments",
+  "private": true,
+  "license": "MIT",
+  "scripts": {
+    "postinstall": "run-p install:api install:static",
+    "install:api": "cd api && npm install",
+    "install:static": "cd static && npm install",
+    "start": "run-p start:api start:static",
+    "start:api": "npm run start --prefix api",
+    "start:static": "npm run start --prefix static",
+    "dev": "run-p dev:api dev:static",
+    "dev:api": "npm run dev --prefix api",
+    "dev:static": "npm run start --prefix static",
+    "test": "run-p test:static test:api",
+    "test:api": "npm run lint --prefix api",
+    "test:static": "npm run flow --prefix static && npm run lint:js --prefix static && npm run lint:css --prefix static && npm run test:coveralls --prefix static",
+    "build": "run-p build:api build:static",
+    "build:api": "cd api && npm run build && cd ..",
+    "build:static": "cd static && npm run build && cd .."
+  },
+  "devDependencies": {
+    "npm-run-all": "^4.0.2",
+    "opn-cli": "^3.1.0"
+  }
+}
