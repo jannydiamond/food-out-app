@@ -1,5 +1,5 @@
 export default {
-  'port': 3005,
+  'port': 3010,
   'databaseHost': 'localhost',
   'databasePort': '3306',
   'databaseName': 'food_out_app',
