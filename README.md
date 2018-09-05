@@ -66,8 +66,8 @@ CREATE TABLE `locations` (
 );
 ```
 
-##API
+## API
 Route | Description
------------ | -----------
+----- | -----------
 /api/locations | All locations
 /api/locations/1 | Location with the id 1
