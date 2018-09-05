@@ -11,6 +11,8 @@ A small app to plan our monthly food out events.
 https://invis.io/Q6NMA9NEPJN
 
 ## NPM scripts
+NPM scripts used in root directory
+
 Script name | Description
 ----------- | -----------
 npm run install | Installs all project dependencies (root, api, static)
@@ -28,3 +30,44 @@ npm run test:static | Starts static tests (flow, lint sass, lint js, test covera
 npm run build | Starts api and static view build
 npm run build:api | Starts api build
 npm run build:static | Starts static view build
+
+## Database
+The project uses a MySQL database. The database config can be found under _/api/src/config/index.js_ which contains the following configurations:
+```
+'port': 3010,
+'databaseHost': 'localhost',
+'databasePort': '3306',
+'databaseName': 'food_out_app',
+'databaseUsername': `${process.env.DB_USER_MYSQL}`,
+'databasePassword': `${process.env.DB_PWD_MYSQL}`,
+'bodyLimit': '100kb'
+```
+
+To export the DB_USER_MYSQL and DB_PWD_MYSQL environment-variables you need to create a .env file in the api directory which contains the following entries:
+```
+DB_USER_MYSQL=your_db_user_name
+DB_PWD_MYSQL=your_db_password
+```
+
+To setup the database the following steps are needed:
+* create a database 'food_out_app'
+* create a table called locations
+* create the .env file to export the environment variables
+
+At the moment it's enough to create the locations table as follows:
+```sql
+CREATE TABLE `locations` (
+	`id` INT(10) NOT NULL AUTO_INCREMENT,
+	`name` VARCHAR(255) NOT NULL,
+	`description` TEXT,
+	`createdAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	`updatedAt` TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+	PRIMARY KEY (`id`)
+);
+```
+
+##API
+Route | Description
+----------- | -----------
+/api/locations | All locations
+/api/locations/1 | Location with the id 1

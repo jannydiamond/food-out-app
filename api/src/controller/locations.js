@@ -54,9 +54,10 @@ export default (db) => {
 
   // Update recipe
   api.put('/:id', (req, res) => {
-    const locationId = req.params.id
+    const locationId = parseInt(req.params.id)
 
     const params = {
+      id: req.body.id,
       name: req.body.name,
       description: req.body.description,
       updatedAt: Date.now()
@@ -71,6 +72,7 @@ export default (db) => {
         id: locationId
       }
     }).then(() => res.status(200).json({
+      data: params,
       message: 'Location has been updated.'
     })).catch(error => res.json({
       error: error
@@ -90,6 +92,7 @@ export default (db) => {
 
       location.destroy().then(() => {
         return res.status(200).json({
+          locationId: locationId,
           message: `Location ${locationToDelete.name} has been successfully deleted.`
         })
       })
