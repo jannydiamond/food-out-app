@@ -16,7 +16,7 @@
     "dev:static": "npm run start --prefix static",
     "test": "run-p test:static test:api",
     "test:api": "npm run lint --prefix api",
-    "test:static": "npm run flow --prefix static && npm run lint:js --prefix static && npm run lint:css --prefix static && npm run test:coveralls --prefix static",
+    "test:static": "npm run test --prefix static && npm run test:coverage --prefix static && npm run lint:js --prefix static && npm run test:coveralls --prefix static",
     "build": "run-p build:api build:static",
     "build:api": "cd api && npm run build && cd ..",
     "build:static": "cd static && npm run build && cd .."
